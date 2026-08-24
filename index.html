@@ -3,314 +3,147 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fifteen Sites — A Web Design Portfolio</title>
-<meta name="description" content="Fifteen standalone, production-quality websites. Each one has its own palette, typography, layout system and signature scroll interaction." />
-<meta property="og:title" content="Fifteen Sites — A Web Design Portfolio" />
-<meta property="og:description" content="Fifteen standalone websites, each with a unique design language and a bespoke scroll-driven interaction." />
-<meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f1115'/><text y='68' x='50' font-size='58' text-anchor='middle' fill='%23e8c07a' font-family='Georgia,serif'>15</text></svg>" />
+<title>Portfolio — 15 Websites</title>
+<meta name="description" content="Fifteen websites, one per industry. Category, short description and a link to each live site." />
 <style>
-  :root{
-    --bg:#0f1115; --bg-2:#151922; --line:rgba(255,255,255,.10);
-    --fg:#eef1f6; --muted:#98a1b3; --gold:#e8c07a; --accent:#7aa2ff;
-    --radius:16px;
-    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --serif:ui-serif,Georgia,"Times New Roman",serif;
-    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  }
+  :root{ --fg:#111; --muted:#666; --line:#e0e0e0; }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
   body{
-    margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
-    line-height:1.55;-webkit-font-smoothing:antialiased;
+    margin:0; background:#fff; color:var(--fg);
+    font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:760px; margin:0 auto; padding:64px 24px 80px}
 
-  /* ---------- header ---------- */
-  header{
-    border-bottom:1px solid var(--line);
-    background:radial-gradient(1100px 420px at 15% -10%,rgba(232,192,122,.13),transparent 60%),
-               radial-gradient(900px 380px at 90% 0%,rgba(122,162,255,.10),transparent 60%);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-  .brand{font-family:var(--serif);font-size:1.15rem;letter-spacing:.02em}
-  .brand b{color:var(--gold);font-weight:600}
-  .nav-links{display:flex;gap:22px;font-size:.85rem;color:var(--muted)}
-  .nav-links a{text-decoration:none}
-  .nav-links a:hover{color:var(--fg)}
-  .hero{padding:64px 0 56px}
-  h1{
-    font-family:var(--serif);font-weight:500;letter-spacing:-.02em;
-    font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.03;margin:0 0 20px;
-  }
-  h1 em{font-style:italic;color:var(--gold)}
-  .lede{max-width:60ch;font-size:clamp(1rem,1.6vw,1.15rem);color:var(--muted);margin:0}
-  .stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
-  .stat b{display:block;font-family:var(--mono);font-size:1.5rem;color:var(--gold);line-height:1}
-  .stat span{font-size:.76rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+  h1{font-size:1.5rem; font-weight:600; margin:0 0 6px; letter-spacing:-.01em}
+  .sub{margin:0 0 40px; color:var(--muted); font-size:.95rem}
 
-  /* ---------- grid ---------- */
-  main{padding:56px 0 24px}
-  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:26px}
-  .section-head h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:0}
-  .section-head p{margin:0;color:var(--muted);font-size:.85rem}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
-  .card{
-    position:relative;display:flex;flex-direction:column;
-    background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
-    padding:24px;text-decoration:none;
-    transition:transform .22s ease,border-color .22s ease,background .22s ease;
-  }
-  .card:hover,.card:focus-visible{
-    transform:translateY(-4px);border-color:rgba(232,192,122,.55);background:#181d27;outline:none;
-  }
-  .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-  .num{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.1em}
-  .cat{
-    font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
-    border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap;
-  }
-  .card h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin:0 0 8px;letter-spacing:-.01em}
-  .desc{margin:0 0 16px;font-size:.92rem;color:#c3cad8}
-  .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
-  .feat{display:block;font-size:.78rem;color:var(--muted);margin-bottom:12px}
-  .feat b{color:var(--accent);font-weight:600}
-  .go{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--gold)}
-  .card:hover .go .arrow{transform:translateX(4px)}
-  .arrow{transition:transform .22s ease}
+  ol{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+  li{border-bottom:1px solid var(--line)}
 
-  /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--line);margin-top:48px;padding:34px 0 56px;color:var(--muted);font-size:.83rem}
-  .foot-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
-  code{font-family:var(--mono);font-size:.8em;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:5px}
-
-  @media (max-width:640px){
-    .nav-links{display:none}
-    .hero{padding:44px 0 40px}
-    .grid{grid-template-columns:1fr}
-    .stats{gap:22px}
+  a.row{
+    display:grid; grid-template-columns:32px 1fr auto; gap:16px;
+    align-items:baseline; padding:18px 4px; text-decoration:none; color:inherit;
   }
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none!important}
+  a.row:hover{background:#fafafa}
+  a.row:focus-visible{outline:2px solid #111; outline-offset:-2px}
+
+  .n{color:var(--muted); font-size:.8rem; font-variant-numeric:tabular-nums}
+  .name{font-weight:600}
+  .cat{color:var(--muted); font-size:.8rem; margin-left:8px; font-weight:400}
+  .desc{display:block; color:var(--muted); font-size:.9rem; margin-top:3px}
+  .go{color:var(--muted); font-size:.85rem; white-space:nowrap}
+  a.row:hover .go{color:var(--fg)}
+
+  footer{margin-top:40px; color:var(--muted); font-size:.85rem}
+
+  @media (max-width:560px){
+    .wrap{padding:40px 18px 60px}
+    a.row{grid-template-columns:26px 1fr; gap:12px}
+    .go{display:none}
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<header>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">Fifteen<b>.</b>Sites</div>
-      <nav class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#about">Approach</a>
-      </nav>
-    </div>
+  <h1>Portfolio</h1>
+  <p class="sub">Fifteen websites, one per industry. Each link opens the live site.</p>
 
-    <div class="hero">
-      <h1>Fifteen websites.<br />Fifteen <em>distinct</em> design languages.</h1>
-      <p class="lede">
-        A collection of standalone, production-quality sites — one per industry. No shared
-        template, no repeated palette, no recycled layout. Each build has its own typography
-        pairing, colour system, and a bespoke scroll-driven interaction written from scratch.
-      </p>
-      <div class="stats">
-        <div class="stat"><b>15</b><span>Websites</span></div>
-        <div class="stat"><b>15</b><span>Palettes</span></div>
-        <div class="stat"><b>15</b><span>Scroll mechanics</span></div>
-        <div class="stat"><b>100%</b><span>Responsive</span></div>
-      </div>
-    </div>
-  </div>
-</header>
+  <ol>
+    <li><a class="row" href="https://ashbourne-university.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">01</span>
+      <span><span class="name">Ashbourne University</span> <span class="cat">Education</span>
+        <span class="desc">Universities and colleges presenting courses, faculty and admissions.</span></span>
+      <span class="go">Open →</span></a></li>
 
-<main class="wrap" id="work">
-  <div class="section-head">
-    <h2>The collection</h2>
-    <p>Click any card to open the live site</p>
-  </div>
+    <li><a class="row" href="https://kamer-studio.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">02</span>
+      <span><span class="name">Kamer Studio</span> <span class="cat">Architecture &amp; interiors</span>
+        <span class="desc">Design studios showing project work and how they run a commission.</span></span>
+      <span class="go">Open →</span></a></li>
 
-  <div class="grid">
+    <li><a class="row" href="https://pelle-clinic.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">03</span>
+      <span><span class="name">Pelle Skin Clinic</span> <span class="cat">Dermatology</span>
+        <span class="desc">Cosmetic skin clinics listing treatments and booking consultations.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://ashbourne-university.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">01</span><span class="cat">Education</span></div>
-      <h3>Ashbourne University</h3>
-      <p class="desc">A historic university presented as a living archive. Oxblood and paper stock, ledger rules and folio lettering give it the feel of a bound record rather than a brochure.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>numeral mask reveal</b>: the founding year opens to expose the campus behind it</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://strand-institute.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">04</span>
+      <span><span class="name">Strand Institute</span> <span class="cat">Hair restoration</span>
+        <span class="desc">Hair transplant clinics explaining the procedure and recovery timeline.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://kamer-studio.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">02</span><span class="cat">Architecture</span></div>
-      <h3>Kamer Studio</h3>
-      <p class="desc">An architecture practice whose site is laid out like a floor plan — limestone ground, ultramarine accents, dimension lines and door arcs used as real navigation furniture.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>horizontal corridor</b>: projects are walked through sideways, not scrolled past</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://tand-dental.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">05</span>
+      <span><span class="name">Tand Dental</span> <span class="cat">Dental</span>
+        <span class="desc">Dental practices covering routine care, pricing and appointments.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://pelle-clinic.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">03</span><span class="cat">Dermatology</span></div>
-      <h3>Pelle Skin Clinic</h3>
-      <p class="desc">Cosmetic dermatology framed as a study of light on skin. Porcelain and celadon, extra-light grotesk, circles and arches — clinical without feeling cold.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>pointer grade split</b>: drag across the portrait to compare two lighting grades</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://forma-atelier.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">06</span>
+      <span><span class="name">Forma Atelier</span> <span class="cat">Cosmetic surgery</span>
+        <span class="desc">Plastic surgery practices presenting procedures and surgeon credentials.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://strand-institute.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">04</span><span class="cat">Hair Clinic</span></div>
-      <h3>Strand Institute</h3>
-      <p class="desc">A hair-restoration clinic built around the honest unit of progress: months. Deep pine and moss, mono counters and leader lines lend it a quiet scientific credibility.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>generative density field</b>: a canvas of strokes thickens as the timeline advances</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://halide-studio.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">07</span>
+      <span><span class="name">Halide Studio</span> <span class="cat">Photography</span>
+        <span class="desc">Photographers showing portfolio work and booking commissions.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://tand-dental.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">05</span><span class="cat">Dental</span></div>
-      <h3>Tand Dental</h3>
-      <p class="desc">A dental practice with a friendly, exacting voice — powder blue and chalk, rounded cards, registration crosshairs and millimetre ticks borrowed from print production.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>sticky card deck</b>: appointment stages peel back one over another</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://foundry-club.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">08</span>
+      <span><span class="name">Foundry Athletic Club</span> <span class="cat">Premium gym</span>
+        <span class="desc">Members' clubs with coached programmes and limited membership.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://forma-atelier.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">06</span><span class="cat">Surgery</span></div>
-      <h3>Forma Atelier</h3>
-      <p class="desc">Plastic surgery treated as sculpture. Gallery greys, an inscriptional serif, roman numerals and a justified column — restraint used as the entire brand signal.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>pointer-erase veil</b>: marble dust wipes away under the cursor to reveal the work</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://soleia-spa.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">09</span>
+      <span><span class="name">Soleia</span> <span class="cat">Salon &amp; spa</span>
+        <span class="desc">Spas and salons listing treatments, gift cards and bookings.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://halide-studio.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">07</span><span class="cat">Photography</span></div>
-      <h3>Halide Studio</h3>
-      <p class="desc">A photography studio that behaves like a darkroom. Carbon black, vermilion grease-pencil marks, sprocket strips and frame numbers throughout.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>contact-sheet zoom</b>: the circled select enlarges out of the sheet</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://iris-vale.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">10</span>
+      <span><span class="name">Iris Vale</span> <span class="cat">Coach / personal brand</span>
+        <span class="desc">Coaches and consultants selling one-to-one and corporate sessions.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://foundry-club.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">08</span><span class="cat">Premium Gym</span></div>
-      <h3>Foundry Athletic Club</h3>
-      <p class="desc">A members' strength club with an industrial spine — iron, chalk white and molten red, compressed capitals, and heat gradients that behave like hot steel.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>molten load rail</b>: a page-wide instrument counting up to 180 KG</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://rep-house.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">11</span>
+      <span><span class="name">Rep House</span> <span class="cat">Gym</span>
+        <span class="desc">Independent gyms with straightforward memberships and day passes.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://soleia-spa.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">09</span><span class="cat">Salon &amp; Spa</span></div>
-      <h3>Soleia</h3>
-      <p class="desc">A spa that sells the best hour of the day. Apricot, rose and fig gradients under a high-contrast fashion serif, with soft arches replacing every hard corner.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>sunrise-to-dusk travel</b>: the whole page warms toward evening as you scroll</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://maren-yoga.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">12</span>
+      <span><span class="name">Maren</span> <span class="cat">Yoga</span>
+        <span class="desc">Yoga and breathwork teachers with class schedules and private sessions.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://iris-vale.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">10</span><span class="cat">Personal Brand</span></div>
-      <h3>Iris Vale</h3>
-      <p class="desc">A communication coach whose entire site is built on silence. Warm paper, electric cobalt and coral, poster-scale grotesk, editorial hairlines.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>cadence rail</b>: a playhead speaks a sentence word by word across a waveform</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://neighborhood-pack.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">13</span>
+      <span><span class="name">The Neighborhood Pack</span> <span class="cat">Pet services</span>
+        <span class="desc">Dog walking, drop-in visits and pet sitting with local walkers.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://rep-house.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">11</span><span class="cat">Strength Gym</span></div>
-      <h3>Rep House</h3>
-      <p class="desc">A no-frills gym that is proud of what it doesn't have. Raw concrete and acid chartreuse, military stencil type, hazard tape and thick blocky borders.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>squash-and-stretch rep machine</b>: a barbell runs a full eight-rep set</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://meridian-models.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">14</span>
+      <span><span class="name">Meridian</span> <span class="cat">Model agency</span>
+        <span class="desc">Talent agencies presenting a roster to clients and taking bookings.</span></span>
+      <span class="go">Open →</span></a></li>
 
-    <a class="card" href="https://maren-yoga.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">12</span><span class="cat">Yoga</span></div>
-      <h3>Maren</h3>
-      <p class="desc">A breath-led yoga teacher whose page sets your pace. Earthy terracotta, sand and sage with a soft optical serif and fully rounded, organic shapes.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>breath cycle</b>: scrolling runs one guided inhale, hold and exhale</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+    <li><a class="row" href="https://altus-estates.higgsfield.app" target="_blank" rel="noopener">
+      <span class="n">15</span>
+      <span><span class="name">Altus</span> <span class="cat">Real estate</span>
+        <span class="desc">Property developers marketing a development and registering interest.</span></span>
+      <span class="go">Open →</span></a></li>
+  </ol>
 
-    <a class="card" href="https://neighborhood-pack.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">13</span><span class="cat">Pet Services</span></div>
-      <h3>The Neighborhood Pack</h3>
-      <p class="desc">A dog-walking co-op with genuine warmth. Cream, vermilion, sky and sunny yellow, chunky rounded type, and real cut-out pets on transparent backgrounds.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>pack parade</b>: the dogs trot in one by one as a live counter tallies them</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
+  <footer>15 sites</footer>
 
-    <a class="card" href="https://meridian-models.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">14</span><span class="cat">Model Agency</span></div>
-      <h3>Meridian</h3>
-      <p class="desc">A women's model management agency presented as a single clean index. Bone ivory, ink black and one electric fuchsia, fashion serif against a technical grotesk.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>roster index</b>: a sticky portrait cross-fades as each name passes centre</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
-
-    <a class="card" href="https://altus-estates.higgsfield.app" target="_blank" rel="noopener">
-      <div class="card-top"><span class="num">15</span><span class="cat">Real Estate</span></div>
-      <h3>Altus</h3>
-      <p class="desc">A landmark residential tower delivered as a developer's prospectus. Deep navy and champagne, Swiss hierarchy, and tabular mono figures for every hard number.</p>
-      <div class="meta">
-        <span class="feat">Signature — <b>isometric masterplan</b>: the tower builds floor by floor to forty-eight storeys</span>
-        <span class="go">Visit site <span class="arrow">→</span></span>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="section-head" id="about" style="margin-top:64px">
-    <h2>Approach</h2>
-    <p>How the set was kept genuinely distinct</p>
-  </div>
-  <div class="grid">
-    <div class="card" style="cursor:default">
-      <h3 style="font-size:1.15rem">No shared vocabulary</h3>
-      <p class="desc" style="margin-bottom:0">Every build was checked against the ones before it on six axes — palette family, type pairing, hero architecture, signature interaction, button treatment and corner language. A new site had to differ on at least four.</p>
-    </div>
-    <div class="card" style="cursor:default">
-      <h3 style="font-size:1.15rem">One idea per site</h3>
-      <p class="desc" style="margin-bottom:0">Each project is built around a single sentence — “the pause is the point”, “reps, not amenities”, “one breath per scroll”. The layout, copy and motion all answer to that one line.</p>
-    </div>
-    <div class="card" style="cursor:default">
-      <h3 style="font-size:1.15rem">Motion that means something</h3>
-      <p class="desc" style="margin-bottom:0">No decorative fades. Every scroll mechanic explains the business: a tower that builds, a breath that cycles, a barbell that completes a set, a roster that indexes.</p>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="wrap foot-row">
-    <span>Fifteen standalone websites &middot; built and deployed individually</span>
-    <span>Landing page is static — deploys to Netlify from <code>/</code></span>
-  </div>
-</footer>
-
+</div>
 </body>
 </html>
