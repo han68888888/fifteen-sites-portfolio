@@ -3,147 +3,262 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Portfolio — 15 Websites</title>
-<meta name="description" content="Fifteen websites, one per industry. Category, short description and a link to each live site." />
+<title>Portfolio — Web Design</title>
+<meta name="description" content="Fifteen websites across education, healthcare, fitness, beauty, property and creative services." />
 <style>
-  :root{ --fg:#111; --muted:#666; --line:#e0e0e0; }
-  *{box-sizing:border-box}
-  body{
-    margin:0; background:#fff; color:var(--fg);
-    font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --fg: #111111;
+    --muted: #6b6b6b;
+    --line: #e5e5e5;
+    --bg: #ffffff;
+    --hover: #fafafa;
   }
-  .wrap{max-width:760px; margin:0 auto; padding:64px 24px 80px}
 
-  h1{font-size:1.5rem; font-weight:600; margin:0 0 6px; letter-spacing:-.01em}
-  .sub{margin:0 0 40px; color:var(--muted); font-size:.95rem}
+  html { -webkit-text-size-adjust: 100%; }
 
-  ol{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
-  li{border-bottom:1px solid var(--line)}
-
-  a.row{
-    display:grid; grid-template-columns:32px 1fr auto; gap:16px;
-    align-items:baseline; padding:18px 4px; text-decoration:none; color:inherit;
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  a.row:hover{background:#fafafa}
-  a.row:focus-visible{outline:2px solid #111; outline-offset:-2px}
 
-  .n{color:var(--muted); font-size:.8rem; font-variant-numeric:tabular-nums}
-  .name{font-weight:600}
-  .cat{color:var(--muted); font-size:.8rem; margin-left:8px; font-weight:400}
-  .desc{display:block; color:var(--muted); font-size:.9rem; margin-top:3px}
-  .go{color:var(--muted); font-size:.85rem; white-space:nowrap}
-  a.row:hover .go{color:var(--fg)}
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 28px 96px;
+  }
 
-  footer{margin-top:40px; color:var(--muted); font-size:.85rem}
+  /* ---------- header ---------- */
+  .masthead { margin-bottom: 64px; }
 
-  @media (max-width:560px){
-    .wrap{padding:40px 18px 60px}
-    a.row{grid-template-columns:26px 1fr; gap:12px}
-    .go{display:none}
+  .masthead h1 {
+    margin: 0 0 14px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .masthead p {
+    margin: 0;
+    max-width: 56ch;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--line);
+    border: 0;
+    margin: 0 0 44px;
+  }
+
+  /* ---------- grid ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  /* Each card is a simple vertical stack — nothing can overlap. */
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--bg);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    border-color: var(--fg);
+    background: var(--hover);
+    outline: none;
+  }
+
+  .card .category {
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .card .name {
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .card .about {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .card .visit {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fg);
+  }
+
+  /* ---------- footer ---------- */
+  .foot {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 48px 20px 72px; }
+    .masthead { margin-bottom: 44px; }
+    .grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <h1>Portfolio</h1>
-  <p class="sub">Fifteen websites, one per industry. Each link opens the live site.</p>
+<div class="container">
 
-  <ol>
-    <li><a class="row" href="https://ashbourne-university.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">01</span>
-      <span><span class="name">Ashbourne University</span> <span class="cat">Education</span>
-        <span class="desc">Universities and colleges presenting courses, faculty and admissions.</span></span>
-      <span class="go">Open →</span></a></li>
+  <header class="masthead">
+    <h1>Web design portfolio</h1>
+    <p>Fifteen websites across education, healthcare, fitness, beauty, property and creative
+       services. Each was designed and built end to end. Select any project to view it live.</p>
+  </header>
 
-    <li><a class="row" href="https://kamer-studio.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">02</span>
-      <span><span class="name">Kamer Studio</span> <span class="cat">Architecture &amp; interiors</span>
-        <span class="desc">Design studios showing project work and how they run a commission.</span></span>
-      <span class="go">Open →</span></a></li>
+  <hr class="rule" />
 
-    <li><a class="row" href="https://pelle-clinic.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">03</span>
-      <span><span class="name">Pelle Skin Clinic</span> <span class="cat">Dermatology</span>
-        <span class="desc">Cosmetic skin clinics listing treatments and booking consultations.</span></span>
-      <span class="go">Open →</span></a></li>
+  <div class="grid">
 
-    <li><a class="row" href="https://strand-institute.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">04</span>
-      <span><span class="name">Strand Institute</span> <span class="cat">Hair restoration</span>
-        <span class="desc">Hair transplant clinics explaining the procedure and recovery timeline.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://ashbourne-university.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Education</span>
+      <span class="name">Ashbourne University</span>
+      <span class="about">For universities and colleges presenting courses, faculty and admissions.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://tand-dental.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">05</span>
-      <span><span class="name">Tand Dental</span> <span class="cat">Dental</span>
-        <span class="desc">Dental practices covering routine care, pricing and appointments.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://kamer-studio.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Architecture &amp; Interiors</span>
+      <span class="name">Kamer Studio</span>
+      <span class="about">For design studios showing project work and how a commission runs.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://forma-atelier.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">06</span>
-      <span><span class="name">Forma Atelier</span> <span class="cat">Cosmetic surgery</span>
-        <span class="desc">Plastic surgery practices presenting procedures and surgeon credentials.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://pelle-clinic.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Dermatology</span>
+      <span class="name">Pelle Skin Clinic</span>
+      <span class="about">For skin clinics listing treatments and taking consultation bookings.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://halide-studio.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">07</span>
-      <span><span class="name">Halide Studio</span> <span class="cat">Photography</span>
-        <span class="desc">Photographers showing portfolio work and booking commissions.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://strand-institute.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Hair Restoration</span>
+      <span class="name">Strand Institute</span>
+      <span class="about">For transplant clinics explaining the procedure and recovery timeline.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://foundry-club.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">08</span>
-      <span><span class="name">Foundry Athletic Club</span> <span class="cat">Premium gym</span>
-        <span class="desc">Members' clubs with coached programmes and limited membership.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://tand-dental.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Dental</span>
+      <span class="name">Tand Dental</span>
+      <span class="about">For dental practices covering routine care, pricing and appointments.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://soleia-spa.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">09</span>
-      <span><span class="name">Soleia</span> <span class="cat">Salon &amp; spa</span>
-        <span class="desc">Spas and salons listing treatments, gift cards and bookings.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://forma-atelier.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Cosmetic Surgery</span>
+      <span class="name">Forma Atelier</span>
+      <span class="about">For surgical practices presenting procedures and surgeon credentials.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://iris-vale.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">10</span>
-      <span><span class="name">Iris Vale</span> <span class="cat">Coach / personal brand</span>
-        <span class="desc">Coaches and consultants selling one-to-one and corporate sessions.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://halide-studio.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Photography</span>
+      <span class="name">Halide Studio</span>
+      <span class="about">For photographers showing portfolio work and booking commissions.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://rep-house.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">11</span>
-      <span><span class="name">Rep House</span> <span class="cat">Gym</span>
-        <span class="desc">Independent gyms with straightforward memberships and day passes.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://foundry-club.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Premium Gym</span>
+      <span class="name">Foundry Athletic Club</span>
+      <span class="about">For members' clubs with coached programmes and limited membership.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://maren-yoga.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">12</span>
-      <span><span class="name">Maren</span> <span class="cat">Yoga</span>
-        <span class="desc">Yoga and breathwork teachers with class schedules and private sessions.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://soleia-spa.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Salon &amp; Spa</span>
+      <span class="name">Soleia</span>
+      <span class="about">For spas and salons listing treatments, gift cards and bookings.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://neighborhood-pack.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">13</span>
-      <span><span class="name">The Neighborhood Pack</span> <span class="cat">Pet services</span>
-        <span class="desc">Dog walking, drop-in visits and pet sitting with local walkers.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://iris-vale.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Coaching</span>
+      <span class="name">Iris Vale</span>
+      <span class="about">For coaches and consultants selling private and corporate sessions.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://meridian-models.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">14</span>
-      <span><span class="name">Meridian</span> <span class="cat">Model agency</span>
-        <span class="desc">Talent agencies presenting a roster to clients and taking bookings.</span></span>
-      <span class="go">Open →</span></a></li>
+    <a class="card" href="https://rep-house.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Fitness</span>
+      <span class="name">Rep House</span>
+      <span class="about">For independent gyms with simple memberships and day passes.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-    <li><a class="row" href="https://altus-estates.higgsfield.app" target="_blank" rel="noopener">
-      <span class="n">15</span>
-      <span><span class="name">Altus</span> <span class="cat">Real estate</span>
-        <span class="desc">Property developers marketing a development and registering interest.</span></span>
-      <span class="go">Open →</span></a></li>
-  </ol>
+    <a class="card" href="https://maren-yoga.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Yoga</span>
+      <span class="name">Maren</span>
+      <span class="about">For yoga and breathwork teachers with schedules and private sessions.</span>
+      <span class="visit">View project →</span>
+    </a>
 
-  <footer>15 sites</footer>
+    <a class="card" href="https://neighborhood-pack.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Pet Services</span>
+      <span class="name">The Neighborhood Pack</span>
+      <span class="about">For dog walking, drop-in visits and pet sitting with local walkers.</span>
+      <span class="visit">View project →</span>
+    </a>
+
+    <a class="card" href="https://meridian-models.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Talent Agency</span>
+      <span class="name">Meridian</span>
+      <span class="about">For agencies presenting a roster to clients and taking bookings.</span>
+      <span class="visit">View project →</span>
+    </a>
+
+    <a class="card" href="https://altus-estates.higgsfield.app" target="_blank" rel="noopener">
+      <span class="category">Real Estate</span>
+      <span class="name">Altus</span>
+      <span class="about">For developers marketing a development and registering buyer interest.</span>
+      <span class="visit">View project →</span>
+    </a>
+
+  </div>
+
+  <div class="foot">Fifteen projects &middot; designed and built end to end</div>
 
 </div>
+
 </body>
 </html>
