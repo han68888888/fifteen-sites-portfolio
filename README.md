@@ -1,4 +1,4 @@
-# Portfolio — 15 Websites
+# Bhanu Prakash Reddy — Portfolio
 
 A plain static index page listing fifteen websites: name, category, one-line description
 and a link to each live site.
