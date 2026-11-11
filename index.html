@@ -4,19 +4,27 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bhanu Prakash Reddy — Web Design Portfolio</title>
-<meta name="description" content="Bhanu Prakash Reddy — web design and development. Fifteen websites across education, healthcare, fitness, beauty, property and creative services." />
+<meta name="description" content="Bhanu Prakash Reddy — web design and development. Fifteen premium websites across education, healthcare, fitness, beauty, property and creative services, each designed and built end to end." />
 <meta property="og:title" content="Bhanu Prakash Reddy — Web Design Portfolio" />
-<meta property="og:description" content="Fifteen websites, designed and built end to end." />
+<meta property="og:description" content="Fifteen premium websites, designed and built end to end." />
 <meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; }
 
   :root {
-    --fg: #111111;
-    --muted: #6b6b6b;
-    --line: #e5e5e5;
-    --bg: #ffffff;
-    --hover: #fafafa;
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --fg: #15130f;
+    --muted: #6c675e;
+    --faint: #928c82;
+    --line: #e8e3da;
+    --line-strong: #15130f;
+    --accent: #0f5c43;
+    --shadow: 0 1px 2px rgba(20,16,10,.04), 0 18px 40px -18px rgba(20,16,10,.18);
+    --radius: 14px;
   }
 
   html { -webkit-text-size-adjust: 100%; }
@@ -25,138 +33,154 @@
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
+  a { color: inherit; }
+
   .container {
-    max-width: 1080px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 72px 28px 96px;
+    padding: clamp(40px, 7vw, 88px) clamp(20px, 5vw, 40px) 100px;
   }
 
-  /* ---------- header ---------- */
-  .masthead { margin-bottom: 64px; }
+  /* ---------- masthead ---------- */
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .masthead { margin-bottom: clamp(44px, 6vw, 72px); max-width: 64ch; }
 
   .masthead h1 {
-    margin: 0 0 6px;
-    font-size: 30px;
-    font-weight: 600;
+    font-family: "Fraunces", Georgia, serif;
+    margin: 14px 0 10px;
+    font-size: clamp(34px, 6vw, 56px);
+    font-weight: 500;
     letter-spacing: -0.02em;
-    line-height: 1.25;
-  }
-
-  .masthead .role {
-    margin: 0 0 20px;
-    font-size: 12px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--muted);
+    line-height: 1.05;
   }
 
   .masthead .bio {
     margin: 0;
-    max-width: 58ch;
-    font-size: 15px;
-    color: var(--fg);
+    font-size: clamp(15px, 2vw, 17px);
+    color: var(--muted);
   }
 
-  .section-intro { margin-bottom: 28px; }
-
-  .section-intro h2 {
-    margin: 0 0 6px;
-    font-size: 15px;
-    font-weight: 600;
+  /* ---------- section intro ---------- */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    margin: 0;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
-
-  .section-intro p {
-    margin: 0;
-    max-width: 58ch;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .rule {
-    height: 1px;
-    background: var(--line);
-    border: 0;
-    margin: 0 0 44px;
-  }
+  .section-head .count { font-size: 13px; color: var(--faint); white-space: nowrap; }
 
   /* ---------- grid ---------- */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: clamp(20px, 2.5vw, 30px);
   }
 
-  /* Each card is a simple vertical stack — nothing can overlap. */
   .card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 24px;
+    background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--bg);
+    border-radius: var(--radius);
+    overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.15s ease, background-color 0.15s ease;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    will-change: transform;
   }
-
-  .card:hover,
-  .card:focus-visible {
-    border-color: var(--fg);
-    background: var(--hover);
+  .card:hover, .card:focus-visible {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: #d8d2c7;
     outline: none;
   }
 
-  .card .category {
+  /* screenshot — 16:9 box, top-anchored so the platform badge is cropped away */
+  .shot {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #efece6;
+    border-bottom: 1px solid var(--line);
+  }
+  .shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform .5s cubic-bezier(.2,.6,.2,1);
+  }
+  .card:hover .shot img { transform: scale(1.04); }
+
+  .meta { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 7px; }
+  .cat {
     font-size: 11px;
-    line-height: 1.4;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--faint);
+    display: flex;
+    align-items: center;
+    gap: 9px;
   }
-
-  .card .name {
-    font-size: 19px;
-    line-height: 1.3;
-    font-weight: 600;
+  .cat .num { color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .name {
+    font-family: "Fraunces", Georgia, serif;
+    margin: 0;
+    font-size: 21px;
+    font-weight: 500;
     letter-spacing: -0.01em;
+    line-height: 1.2;
   }
-
-  .card .about {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--muted);
-  }
-
-  .card .visit {
+  .about { margin: 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
+  .visit {
     margin-top: 6px;
     font-size: 13px;
     font-weight: 500;
-    color: var(--fg);
+    color: var(--accent);
   }
+  .visit::after { content: " \2192"; transition: margin-left .2s ease; }
+  .card:hover .visit::after { margin-left: 4px; }
 
   /* ---------- footer ---------- */
   .foot {
     margin-top: 72px;
     padding-top: 24px;
     border-top: 1px solid var(--line);
-    color: var(--muted);
+    color: var(--faint);
     font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    justify-content: space-between;
   }
 
-  @media (max-width: 600px) {
-    .container { padding: 48px 20px 72px; }
-    .masthead { margin-bottom: 44px; }
-    .grid { grid-template-columns: 1fr; gap: 16px; }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
   }
-
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
   }
@@ -167,131 +191,176 @@
 <div class="container">
 
   <header class="masthead">
+    <span class="eyebrow">Web design &amp; development</span>
     <h1>Bhanu Prakash Reddy</h1>
-    <p class="role">Web design &amp; development</p>
-    <p class="bio">I build things that solve real problems. I like starting from how something
-       actually works for the people using it, then designing and building around that — which
-       usually means fewer features, done properly.</p>
+    <p class="bio">I build things that solve real problems. I start from how something actually works
+       for the people using it, then design and build around that &mdash; which usually means fewer
+       features, done properly.</p>
   </header>
 
-  <hr class="rule" />
-
-  <div class="section-intro">
+  <div class="section-head">
     <h2>Selected work</h2>
-    <p>Fifteen websites across education, healthcare, fitness, beauty, property and creative
-       services, each designed and built end to end. Select any project to view it live.</p>
+    <span class="count">Fifteen projects &middot; designed &amp; built end to end</span>
   </div>
 
   <div class="grid">
 
     <a class="card" href="https://ashbourne-university.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Education</span>
-      <span class="name">Ashbourne University</span>
-      <span class="about">For universities and colleges presenting courses, faculty and admissions.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/ashbourne-university.jpg" alt="Ashbourne University — landing page" width="1440" height="810" fetchpriority="high" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">01</span> Education</span>
+        <h3 class="name">Ashbourne University</h3>
+        <p class="about">For universities and colleges presenting courses, faculty and admissions.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://kamer-studio.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Architecture &amp; Interiors</span>
-      <span class="name">Kamer Studio</span>
-      <span class="about">For design studios showing project work and how a commission runs.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/kamer-studio.jpg" alt="Kamer Studio — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">02</span> Architecture &amp; Interiors</span>
+        <h3 class="name">Kamer Studio</h3>
+        <p class="about">For design studios showing project work and how a commission runs.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://pelle-clinic.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Dermatology</span>
-      <span class="name">Pelle Skin Clinic</span>
-      <span class="about">For skin clinics listing treatments and taking consultation bookings.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/pelle-clinic.jpg" alt="Pelle Skin Clinic — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">03</span> Dermatology</span>
+        <h3 class="name">Pelle Skin Clinic</h3>
+        <p class="about">For skin clinics listing treatments and taking consultation bookings.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://strand-institute.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Hair Restoration</span>
-      <span class="name">Strand Institute</span>
-      <span class="about">For transplant clinics explaining the procedure and recovery timeline.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/strand-institute.jpg" alt="Strand Institute — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">04</span> Hair Restoration</span>
+        <h3 class="name">Strand Institute</h3>
+        <p class="about">For transplant clinics explaining the procedure and recovery timeline.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://tand-dental.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Dental</span>
-      <span class="name">Tand Dental</span>
-      <span class="about">For dental practices covering routine care, pricing and appointments.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/tand-dental.jpg" alt="Tand Dental — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">05</span> Dental</span>
+        <h3 class="name">Tand Dental</h3>
+        <p class="about">For dental practices covering routine care, pricing and appointments.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://forma-atelier.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Cosmetic Surgery</span>
-      <span class="name">Forma Atelier</span>
-      <span class="about">For surgical practices presenting procedures and surgeon credentials.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/forma-atelier.jpg" alt="Forma Atelier — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">06</span> Cosmetic Surgery</span>
+        <h3 class="name">Forma Atelier</h3>
+        <p class="about">For surgical practices presenting procedures and surgeon credentials.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://halide-studio.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Photography</span>
-      <span class="name">Halide Studio</span>
-      <span class="about">For photographers showing portfolio work and booking commissions.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/halide-studio.jpg" alt="Halide Studio — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">07</span> Photography</span>
+        <h3 class="name">Halide Studio</h3>
+        <p class="about">For photographers showing portfolio work and booking commissions.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://foundry-club.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Premium Gym</span>
-      <span class="name">Foundry Athletic Club</span>
-      <span class="about">For members' clubs with coached programmes and limited membership.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/foundry-club.jpg" alt="Foundry Athletic Club — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">08</span> Premium Gym</span>
+        <h3 class="name">Foundry Athletic Club</h3>
+        <p class="about">For members&rsquo; clubs with coached programmes and limited membership.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://soleia-spa.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Salon &amp; Spa</span>
-      <span class="name">Soleia</span>
-      <span class="about">For spas and salons listing treatments, gift cards and bookings.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/soleia-spa.jpg" alt="Soleia — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">09</span> Salon &amp; Spa</span>
+        <h3 class="name">Soleia</h3>
+        <p class="about">For spas and salons listing treatments, gift cards and bookings.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://iris-vale.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Coaching</span>
-      <span class="name">Iris Vale</span>
-      <span class="about">For coaches and consultants selling private and corporate sessions.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/iris-vale.jpg" alt="Iris Vale — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">10</span> Coaching</span>
+        <h3 class="name">Iris Vale</h3>
+        <p class="about">For coaches and consultants selling private and corporate sessions.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://rep-house.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Fitness</span>
-      <span class="name">Rep House</span>
-      <span class="about">For independent gyms with simple memberships and day passes.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/rep-house.jpg" alt="Rep House — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">11</span> Fitness</span>
+        <h3 class="name">Rep House</h3>
+        <p class="about">For independent gyms with simple memberships and day passes.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://maren-yoga.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Yoga</span>
-      <span class="name">Maren</span>
-      <span class="about">For yoga and breathwork teachers with schedules and private sessions.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/maren-yoga.jpg" alt="Maren — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">12</span> Yoga</span>
+        <h3 class="name">Maren</h3>
+        <p class="about">For yoga and breathwork teachers with schedules and private sessions.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://neighborhood-pack.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Pet Services</span>
-      <span class="name">The Neighborhood Pack</span>
-      <span class="about">For dog walking, drop-in visits and pet sitting with local walkers.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/neighborhood-pack.jpg" alt="The Neighborhood Pack — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">13</span> Pet Services</span>
+        <h3 class="name">The Neighborhood Pack</h3>
+        <p class="about">For dog walking, drop-in visits and pet sitting with local walkers.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://meridian-models.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Talent Agency</span>
-      <span class="name">Meridian</span>
-      <span class="about">For agencies presenting a roster to clients and taking bookings.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/meridian-models.jpg" alt="Meridian — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">14</span> Talent Agency</span>
+        <h3 class="name">Meridian</h3>
+        <p class="about">For agencies presenting a roster to clients and taking bookings.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
     <a class="card" href="https://altus-estates.higgsfield.app" target="_blank" rel="noopener">
-      <span class="category">Real Estate</span>
-      <span class="name">Altus</span>
-      <span class="about">For developers marketing a development and registering buyer interest.</span>
-      <span class="visit">View project →</span>
+      <figure class="shot"><img src="assets/shots/altus-estates.jpg" alt="Altus — landing page" width="1440" height="810" loading="lazy" decoding="async" /></figure>
+      <div class="meta">
+        <span class="cat"><span class="num">15</span> Real Estate</span>
+        <h3 class="name">Altus</h3>
+        <p class="about">For developers marketing a development and registering buyer interest.</p>
+        <span class="visit">View live site</span>
+      </div>
     </a>
 
   </div>
 
-  <div class="foot">Bhanu Prakash Reddy &middot; fifteen projects, designed and built end to end</div>
+  <div class="foot">
+    <span>Bhanu Prakash Reddy &middot; fifteen projects, designed and built end to end</span>
+    <span>Select any project to view it live</span>
+  </div>
 
 </div>
 
